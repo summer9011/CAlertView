@@ -36,7 +36,10 @@
     CAlertAction *doneAction = [CAlertAction actionWithTitle:@"完成" style:CAlertActionDone handler:^(CAlertAction *alertAction) {
         NSLog(@"alertTextField结果 %@", alertView.alertTextField.text);
         NSLog(@"alertTextView结果 %@", alertView.alertTextView.text);
+        
+        [alertView hidden];
     }];
+    doneAction.canHiddenView = NO;
     
     [alertView addAlertActions:@[cancelAction, doneAction]];
     

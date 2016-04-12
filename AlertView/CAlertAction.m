@@ -18,6 +18,7 @@
     alertAction.style = style;
     
     alertAction.enabled = YES;
+    alertAction.canHiddenView = YES;
     
     return alertAction;
 }

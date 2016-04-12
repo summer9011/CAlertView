@@ -44,6 +44,11 @@
 - (void)showInView:(UIView *)view;
 
 /**
+ *  隐藏AlertView
+ */
+- (void)hidden;
+
+/**
  *  添加按钮Action
  *
  *  @param action 按钮Action

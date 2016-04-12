@@ -28,5 +28,6 @@ typedef NS_ENUM(NSUInteger, CAlertActionStyle) {
 @property (nonatomic, assign) CAlertActionStyle style;
 
 @property (nonatomic, assign) BOOL enabled;
+@property (nonatomic, assign) BOOL canHiddenView;
 
 @end

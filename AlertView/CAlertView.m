@@ -77,6 +77,15 @@
     }
 }
 
+- (void)hidden {
+    [UIView animateWithDuration:0.1 animations:^{
+        self.alpha = 0.f;
+        self.transform = CGAffineTransformMakeScale(1.2, 1.2);
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
+}
+
 - (void)addAlertAction:(CAlertAction *)action {
     [self addActionLine];
     [self addAction:action];
@@ -179,15 +188,6 @@
     [self endEditing:YES];
 }
 
-- (void)hidden {
-    [UIView animateWithDuration:0.1 animations:^{
-        self.alpha = 0.f;
-        self.transform = CGAffineTransformMakeScale(1.2, 1.2);
-    } completion:^(BOOL finished) {
-        [self removeFromSuperview];
-    }];
-}
-
 - (void)addActionLine {
     if (self.actionArr.count == 0) {
         [self plusContentRectHeight:CAlertActionHeight + 0.5];
@@ -252,7 +252,10 @@
     
     if (action.enabled) {
         action.handler(action);
-        [self hidden];
+        
+        if (action.canHiddenView) {
+            [self hidden];
+        }
     }
 }
 
