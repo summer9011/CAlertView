@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E91BDC41CBBAD56005FFC49 /* CTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E91BDC31CBBAD56005FFC49 /* CTextView.m */; };
 		6E926B7A1C9689D300C2CBCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E926B791C9689D300C2CBCE /* main.m */; };
 		6E926B7D1C9689D300C2CBCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E926B7C1C9689D300C2CBCE /* AppDelegate.m */; };
 		6E926B801C9689D300C2CBCE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E926B7F1C9689D300C2CBCE /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E91BDC21CBBAD56005FFC49 /* CTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTextView.h; sourceTree = "<group>"; };
+		6E91BDC31CBBAD56005FFC49 /* CTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTextView.m; sourceTree = "<group>"; };
 		6E926B751C9689D300C2CBCE /* AlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E926B791C9689D300C2CBCE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E926B7B1C9689D300C2CBCE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 				6E926B941C968B5F00C2CBCE /* CAlertView.m */,
 				6E926B961C968B9200C2CBCE /* CAlertAction.h */,
 				6E926B971C968B9200C2CBCE /* CAlertAction.m */,
+				6E91BDC21CBBAD56005FFC49 /* CTextView.h */,
+				6E91BDC31CBBAD56005FFC49 /* CTextView.m */,
 			);
 			name = CAlertView;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				6E926B801C9689D300C2CBCE /* ViewController.m in Sources */,
 				6E926B951C968B5F00C2CBCE /* CAlertView.m in Sources */,
 				6E926B7D1C9689D300C2CBCE /* AppDelegate.m in Sources */,
+				6E91BDC41CBBAD56005FFC49 /* CTextView.m in Sources */,
 				6E926B9F1C97A8CD00C2CBCE /* UIView+CAlertAction.m in Sources */,
 				6E926B7A1C9689D300C2CBCE /* main.m in Sources */,
 				6E926B981C968B9200C2CBCE /* CAlertAction.m in Sources */,
@@ -334,6 +340,7 @@
 				6E926B8E1C9689D300C2CBCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

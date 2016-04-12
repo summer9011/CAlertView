@@ -26,7 +26,7 @@
     
     //设置标题和描述
     alertView.alertTitle = @"测试测试测试";
-    alertView.alertDescription = @"描述描述描述描述描述描述描述描述描述描述描述描述描述描述";
+    alertView.alertDescription = @"描述描述描述描述";
     
     //设置Action
     CAlertAction *cancelAction = [CAlertAction actionWithTitle:@"取消" style:CAlertActionNormal handler:^(CAlertAction *alertAction) {
@@ -34,14 +34,19 @@
     }];
     
     CAlertAction *doneAction = [CAlertAction actionWithTitle:@"完成" style:CAlertActionDone handler:^(CAlertAction *alertAction) {
-        NSLog(@"完成");
+        NSLog(@"alertTextField结果 %@", alertView.alertTextField.text);
+        NSLog(@"alertTextView结果 %@", alertView.alertTextView.text);
     }];
     
-    CAlertAction *moreAction = [CAlertAction actionWithTitle:@"更多" style:CAlertActionNormal handler:^(CAlertAction *alertAction) {
-        NSLog(@"更多");
-    }];
-    [alertView addAlertActions:@[cancelAction, doneAction, moreAction]];
+    [alertView addAlertActions:@[cancelAction, doneAction]];
     
+    //设置文本TextField
+    [alertView addTextFieldWithPlaceholder:@"这里是placeholder" text:@"222"];
+    
+    //设置文本TextView
+//    [alertView addTextViewWithPlaceholder:@"这里是输入文本框" text:@"111"];
+    
+    /*
     //设置自定义的视图
     NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"CustomView" owner:nil options:nil];
     UIView *customView = nibViews[0];
@@ -59,6 +64,7 @@
     }];
     
     [alertView addAlertContentView:customView];
+     */
     
     //显示视图
     [alertView showInView:self.view];

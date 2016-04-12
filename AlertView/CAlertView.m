@@ -90,18 +90,73 @@
     }
 }
 
+- (void)addTextFieldWithPlaceholder:(NSString *)placeholder text:(NSString *)text {
+    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    
+    _alertTextField = [[UITextField alloc] init];
+    _alertTextField.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    _alertTextField.borderStyle = UITextBorderStyleRoundedRect;
+    _alertTextField.textColor = [UIColor colorWithRed:51/255.f green:51/255.f blue:51/255.f alpha:1.f];
+    _alertTextField.font = [UIFont systemFontOfSize:16];
+    
+    [contentView addSubview:_alertTextField];
+    
+    NSLayoutConstraint *topCons = [NSLayoutConstraint constraintWithItem:_alertTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeTop multiplier:1.f constant:0.f];
+    NSLayoutConstraint *bottomCons = [NSLayoutConstraint constraintWithItem:_alertTextField attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeBottom multiplier:1.f constant:0.f];
+    NSLayoutConstraint *leadingCons = [NSLayoutConstraint constraintWithItem:_alertTextField attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeLeading multiplier:1.f constant:10.f];
+    NSLayoutConstraint *trailingCons = [NSLayoutConstraint constraintWithItem:contentView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:_alertTextField attribute:NSLayoutAttributeTrailing multiplier:1.f constant:10.f];
+    
+    [contentView addConstraints:@[topCons, bottomCons, leadingCons, trailingCons]];
+    
+    [self addAlertContentView:contentView];
+    
+    _alertTextField.placeholder = placeholder;
+    _alertTextField.text = text;
+}
+
+- (void)addTextViewWithPlaceholder:(NSString *)placeholder text:(NSString *)text {
+    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 200)];
+    
+    _alertTextView = [[CTextView alloc] init];
+    _alertTextView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    _alertTextView.font = [UIFont systemFontOfSize:14];
+    _alertTextView.textColor = [UIColor colorWithRed:51/255.f green:51/255.f blue:51/255.f alpha:1.f];
+    
+    _alertTextView.layer.borderColor = [UIColor colorWithRed:204/255.f green:204/255.f blue:204/255.f alpha:1.f].CGColor;
+    _alertTextView.layer.borderWidth = 0.5;
+    _alertTextView.layer.cornerRadius = 4.f;
+    
+    [contentView addSubview:_alertTextView];
+    
+    NSLayoutConstraint *topCons = [NSLayoutConstraint constraintWithItem:_alertTextView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeTop multiplier:1.f constant:0.f];
+    NSLayoutConstraint *bottomCons = [NSLayoutConstraint constraintWithItem:_alertTextView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeBottom multiplier:1.f constant:0.f];
+    NSLayoutConstraint *leadingCons = [NSLayoutConstraint constraintWithItem:_alertTextView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeLeading multiplier:1.f constant:10.f];
+    NSLayoutConstraint *trailingCons = [NSLayoutConstraint constraintWithItem:contentView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:_alertTextView attribute:NSLayoutAttributeTrailing multiplier:1.f constant:10.f];
+    
+    [contentView addConstraints:@[topCons, bottomCons, leadingCons, trailingCons]];
+    
+    [self addAlertContentView:contentView];
+    
+    _alertTextView.placeholder = placeholder;
+    _alertTextView.text = text;
+}
+
 - (void)addAlertContentView:(UIView *)contentView {
     CGRect tmpRect = contentView.frame;
     
     tmpRect.origin.x = 0.f;
     
     CGFloat originY = 20;
+    CGFloat heightOffset = 20.f;
     if (self.titleLabel != nil) {
         originY += self.titleLabel.frame.origin.y + CGRectGetHeight(self.titleLabel.frame);
     }
     
     if (self.descLabel != nil) {
         originY += CGRectGetHeight(self.descLabel.frame);
+        heightOffset = 0.f;
     }
     
     tmpRect.origin.y = originY;
@@ -111,7 +166,7 @@
     
     [contentView layoutIfNeeded];
     
-    [self plusContentRectHeight:CGRectGetHeight(contentView.frame)];
+    [self plusContentRectHeight:heightOffset + CGRectGetHeight(contentView.frame)];
     
     [self.contentView addSubview:contentView];
     
